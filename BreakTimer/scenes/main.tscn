@@ -1,0 +1,149 @@
+[gd_scene load_steps=5 format=3 uid="uid://bocft0dht0oj0"]
+
+[ext_resource type="FontFile" uid="uid://ba72nai6r5o8p" path="res://font/PrStart.ttf" id="1_bpugm"]
+[ext_resource type="Theme" uid="uid://euoel6ult4g8" path="res://ui/themes/theme.tres" id="1_fdlhf"]
+[ext_resource type="Script" uid="uid://lwq4fpbsgcrl" path="res://scenes/main.gd" id="1_xhxje"]
+[ext_resource type="AudioStream" uid="uid://cbhubxodnjewf" path="res://sound/relaxing-guitar-loop-v5-245859.mp3" id="4_82p5m"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xhxje")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 320.0
+color = Color(1, 0.490196, 0.368627, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.012
+offset_left = 72.0
+offset_top = 248.0
+offset_right = 112.0
+offset_bottom = 275.16
+theme = ExtResource("1_fdlhf")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_bpugm")
+text = "Go"
+
+[node name="Pause" type="LineEdit" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 104.0
+offset_top = 112.0
+offset_right = 176.0
+offset_bottom = 136.0
+theme = ExtResource("1_fdlhf")
+theme_override_colors/font_color = Color(1, 0.491481, 0.369798, 1)
+theme_override_fonts/font = ExtResource("1_bpugm")
+placeholder_text = "min."
+alignment = 1
+
+[node name="Work" type="LineEdit" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 104.0
+offset_top = 64.0
+offset_right = 176.0
+offset_bottom = 88.0
+theme = ExtResource("1_fdlhf")
+theme_override_colors/font_color = Color(1, 0.490196, 0.368627, 1)
+theme_override_fonts/font = ExtResource("1_bpugm")
+placeholder_text = "min."
+alignment = 1
+
+[node name="LabelPause" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 112.0
+offset_right = 98.0
+offset_bottom = 136.0
+theme = ExtResource("1_fdlhf")
+text = "Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelMode" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 200.0
+offset_right = 179.0
+offset_bottom = 224.0
+theme = ExtResource("1_fdlhf")
+text = "Mode: Work"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelWork" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = 64.0
+offset_right = 88.0
+offset_bottom = 88.0
+theme = ExtResource("1_fdlhf")
+text = "Work"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerPause" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[node name="TimerWork" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_82p5m")
+
+[node name="AudioSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 6.0
+offset_right = 173.0
+offset_bottom = 22.0
+theme = ExtResource("1_fdlhf")
+min_value = -20.0
+max_value = 8.0
+
+[node name="Audio" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 94.0
+offset_bottom = 26.0
+theme = ExtResource("1_fdlhf")
+text = "Audio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLeft" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -69.0
+offset_right = 85.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fdlhf")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="TimerPause" to="." method="_on_timer_pause_timeout"]
+[connection signal="timeout" from="TimerWork" to="." method="_on_timer_work_timeout"]

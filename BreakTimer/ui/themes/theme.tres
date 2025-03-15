@@ -1,0 +1,39 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://euoel6ult4g8"]
+
+[ext_resource type="StyleBox" uid="uid://cedaaopwwbnnq" path="res://ui/themes/button_normal.tres" id="1_umwvb"]
+[ext_resource type="FontFile" uid="uid://ba72nai6r5o8p" path="res://font/PrStart.ttf" id="2_o3k8k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_px5ep"]
+bg_color = Color(0.308313, 0.615384, 0.722489, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87yh2"]
+bg_color = Color(1, 0.490196, 0.368627, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0twjt"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.490196, 0.368627, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[resource]
+default_font = ExtResource("2_o3k8k")
+Button/styles/normal = ExtResource("1_umwvb")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_px5ep")
+Label/styles/normal = SubResource("StyleBoxFlat_87yh2")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_0twjt")
